@@ -1,0 +1,28 @@
+{
+  "name": "moltmon",
+  "version": "0.0.1",
+  "description": "Virtual pet with MCP server for AI caretaking",
+  "type": "module",
+  "main": "dist/mcp/index.js",
+  "bin": {
+    "moltmon-mcp": "./dist/mcp/index.js",
+    "moltmon-animation": "./dist/animation/index.js"
+  },
+  "scripts": {
+    "build": "tsc && cp -r src/creatures dist/",
+    "start:animation": "node dist/animation/index.js",
+    "start:animation:dev": "node dist/animation/index.js --dev-mode",
+    "start:mcp": "node dist/mcp/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
