@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { fileURLToPath } from 'url';
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
 import { createMoltmonApi } from '../api/index.js';
 
-function createMcpServer(): Server {
+export function createMcpServer(): Server {
   const server = new Server(
     {
       name: 'moltmon-mcp',
@@ -221,11 +222,18 @@ function createMcpServer(): Server {
   return server;
 }
 
-async function main(): Promise<void> {
+export async function startMcpServer(): Promise<void> {
   const server = createMcpServer();
   const transport = new StdioServerTransport();
   await server.connect(transport);
   console.error('Moltmon MCP server started on stdio');
 }
 
-main().catch(console.error);
+async function main(): Promise<void> {
+  await startMcpServer();
+}
+
+const isMain = process.argv[1] === fileURLToPath(import.meta.url);
+if (isMain) {
+  main().catch(console.error);
+}

@@ -115,16 +115,11 @@ export class MoltmonApi {
   }
 
   private determineCreature(personality: string): string {
-    const roll = Math.random();
-    const normalized = personality.toLowerCase().trim();
-
+    const normalized = personality.toLowerCase();
     if (normalized === 'brave') {
-      return roll < 0.8 ? '002_pink_dog' : '001_blue_cat';
-    } else if (normalized === 'curious') {
-      return roll < 0.8 ? '001_blue_cat' : '002_pink_dog';
-    } else {
-      return roll < 0.5 ? '001_blue_cat' : '002_pink_dog';
+      return 'doggo';
     }
+    return 'catto';
   }
 
   // System Queries (read-only)

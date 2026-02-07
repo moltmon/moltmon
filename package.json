@@ -5,14 +5,14 @@
   "type": "module",
   "main": "dist/mcp/index.js",
   "bin": {
+    "moltmon": "./dist/web/index.js",
     "moltmon-mcp": "./dist/mcp/index.js",
     "moltmon-animation": "./dist/animation/index.js"
   },
   "scripts": {
-    "build": "tsc && cp -r src/creatures dist/",
-    "start:animation": "node dist/animation/index.js",
-    "start:animation:dev": "node dist/animation/index.js --dev-mode",
-    "start:mcp": "node dist/mcp/index.js"
+    "build": "tsc && cp -r creatures dist/ && cp -r web dist/ && cp -r sprites dist/",
+    "start": "node scripts/start.js",
+    "start:build": "node scripts/start.js --build"
   },
   "keywords": [],
   "author": "",

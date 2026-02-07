@@ -1,0 +1,21 @@
+{
+  "name": "catto",
+  "version": "0.0.1",
+  "description": "Animated pixel art cat",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "catto": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
